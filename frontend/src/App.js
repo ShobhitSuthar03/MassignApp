@@ -66,7 +66,7 @@ function App() {
         isCore: !!space.isCore // Send isCore property
       }));
       const response = await axios.post(
-        'http://localhost:8000/generate-ifc',
+        'https://massignapp.onrender.com/generate-ifc',
         { spaces: spacesToSend },
         { responseType: 'blob' }
       );
@@ -134,7 +134,7 @@ function App() {
     // Send to backend
     try {
       const response = await axios.post(
-        'http://localhost:8000/generate-ifc',
+        'https://massignapp.onrender.com/generate-ifc',
         { spaces: solids },
         { responseType: 'blob' }
       );
