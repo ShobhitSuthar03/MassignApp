@@ -24,6 +24,8 @@ const SPACE_TYPE_COLORS = {
   Roof: '#43AA8B',
 };
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function App() {
   const [spaces, setSpaces] = useState([]);
   const [planImage, setPlanImage] = useState(null); // image URL for imported plan
@@ -66,7 +68,7 @@ function App() {
         isCore: !!space.isCore // Send isCore property
       }));
       const response = await axios.post(
-        'https://massignapp.onrender.com/generate-ifc',
+        `${API_URL}/generate-ifc`,
         { spaces: spacesToSend },
         { responseType: 'blob' }
       );
@@ -134,7 +136,7 @@ function App() {
     // Send to backend
     try {
       const response = await axios.post(
-        'https://massignapp.onrender.com/generate-ifc',
+        `${API_URL}/generate-ifc`,
         { spaces: solids },
         { responseType: 'blob' }
       );
